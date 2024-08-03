@@ -4,9 +4,14 @@ import {
     View,
     Text,
     Image,
+    Button,
+    Linking,
 } from 'react-native';
 
 const FancyCard = () => {
+    const openWebSite = (website:string) => {
+        Linking.openURL(website)
+    }
     return (
         <View style={styles.container}>
             <View style={styles.fancyCard}>
@@ -16,7 +21,9 @@ const FancyCard = () => {
                 <Text style={styles.fancyCardTitle}>TaJ Mahal</Text>
                 <Text style={styles.fancyCardDescription}>The Taj Mahal is an ivory-white marble mausoleum on the right bank of the river Yamuna in Agra, Uttar Pradesh, India...</Text>
             </View>
+            <Button onPress={()=>openWebSite('https://en.wikipedia.org/wiki/Taj_Mahal')}  title='Click Me'/>
         </View>
+
     );
 }
 
@@ -70,4 +77,5 @@ const styles = StyleSheet.create({
     }
 })
 
+ 
 export default FancyCard;

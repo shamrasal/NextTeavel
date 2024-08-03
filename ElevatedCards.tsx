@@ -4,10 +4,15 @@ import {
     View,
     Text,
     ScrollView,
-    Image
+    Image,
+    Linking,
+    TouchableOpacity
 } from 'react-native';
 
 const ElevatedCards = () => {
+    const openWebSite = (website:string) => {
+        Linking.openURL(website)
+    }
     return (
         <View>
             <ScrollView horizontal>
@@ -30,6 +35,11 @@ const ElevatedCards = () => {
                    
                 </View>
             </ScrollView>
+            <View>
+                <TouchableOpacity onPress={()=>openWebSite('https://www.holidify.com/country/india/places-to-visit.html')}>
+                    <Text style={[styles.header,styles.darkTheme]} >Read More...</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     );
 }
@@ -85,7 +95,16 @@ const styles = StyleSheet.create({
         alignItems:'center',
         margin:5,
         flex:1,
-    }
+    },
+    darkTheme:{
+        backgroundColor: '#121212',
+        color:'white'
+      },
+      header:{
+        fontSize: 14,
+        fontWeight: 'bold',
+        padding:5
+      },
 })
 
 export default ElevatedCards;
